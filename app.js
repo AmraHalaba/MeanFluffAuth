@@ -4,16 +4,13 @@ const bodyParser    = require('body-parser');
 const cors          = require('cors');
 const passport      = require('passport');
 const mongoose      = require('mongoose');
-require("dotenv").config();
 
 /****************************IMPORT CORE NODE MODULES****************************/
-const path       = require('path');
+const path          = require('path');
 
 /****************************IMPORT CREATED MODULES****************************/
-const users      = require('./routes/users');
-// const mongoDbUrl = require('./config/database');
-// const PORT       = require("./config/database");
-const { DB, PORT } = require("./config/index.js");
+const users         = require('./routes/users');
+const { DB, PORT }  = require("./config/index.js");
 
 
 /****************************INITIALIZE APP VARIABLE****************************/
@@ -35,30 +32,6 @@ mongoose
   .catch((err) => {
     console.log("Database Connection Failure.");
   });
-
-/*const startApp = async () => {
-  try {
-    await connect(DB, {
-      dbName: "MeanFluff",
-    });
-
-    success({
-
-      message: `Successfully connected with the Database \n${DB}`,
-      badge: true,
-    });
-
-    app.listen(process.env.PORT || PORT, () =>
-      success({ message: `Server started on PORT ${PORT}`, badge: true })
-    );
-  } catch (err) {
-    error({
-      message: `Unable to connect with Database \n${err}`,
-      badge: true,
-    });
-    startApp();
-  }
-};*/
 
 
 /****************************MIDDLEWARES****************************/
